@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :bind9 do |bind9_config|
   	  bind9_config.vm.hostname = "bind9"
   	  bind9_config.vm.network :private_network, ip: "192.168.2.15"
-  	  bind9_config.vm.network "forwarded_port", guest: 53, host: 53
+  	  bind9_config.vm.network "forwarded_port", guest: 53, host: 5353
       bind9_config.vm.provision :shell, :path => "bind9.sh"	
       bind9_config.vm.provider :virtualbox do |vb|
       	vb.customize ['modifyvm', :id, '--nictrace2', 'on']
