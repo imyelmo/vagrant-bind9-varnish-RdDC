@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install apache
-sudo apt-get update
+sudo apt-get -y update
 sudo apt-get -y install apache2 vim
 sudo a2enmod headers
 
@@ -115,7 +115,7 @@ sudo cp /tmp/aux /etc/apache2/sites-available/default
 sudo ifdown eth0; sudo ifup eth0
 
 sudo cp -r /vagrant/www/* /var/www/
-
+sed -i "s/HOST/$HOSTNAME/g" /var/www/index.html
 
 # Log the X-Forwarded-For
 perl -pi -e  's/^LogFormat "\%h (.* combined)$/LogFormat "%h %{X-Forwarded-For}i $1/' /etc/apache2/apache2.conf
