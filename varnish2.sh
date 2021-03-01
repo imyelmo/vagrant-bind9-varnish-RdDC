@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 sudo apt-get update
 sudo sudo apt-get install curl gnupg apt-transport-https -y
 curl -L https://packagecloud.io/varnishcache/varnish41/gpgkey | sudo apt-key add -
