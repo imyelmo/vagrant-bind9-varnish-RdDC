@@ -1,9 +1,8 @@
-#!/bin/bash
+!/bin/bash
 sudo apt-get update
-sudo apt-get install apt-transport-https -y
-sudo apt-get install curl -y
-sudo curl https://repo.varnish-cache.org/GPG-key.txt | sudo apt-key add -
-sudo echo "deb https://repo.varnish-cache.org/ubuntu/ precise varnish-4.1" | sudo tee -a /etc/apt/sources.list.d/varnish-cache.list
+sudo sudo apt-get install curl gnupg apt-transport-https -y
+curl -L https://packagecloud.io/varnishcache/varnish41/gpgkey | sudo apt-key add -
+sudo echo "deb https://packagecloud.io/varnishcache/varnish41/ubuntu/ precise main" | sudo tee -a /etc/apt/sources.list.d/varnish-cache.list
 sudo apt-get update -y
 sudo apt-get install varnish vim -y
 
